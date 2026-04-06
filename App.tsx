@@ -33,7 +33,9 @@ export default function App() {
         <Text>Data: {consulta.data}</Text>
         <Text>Status: {consulta.status}</Text>
         {consulta.status === "agendada" && (
-          <Button title="Confirmar Consulta" onPress={confirmarConsulta} />
+          <View style={styles.btnContainer}>
+            <Button title="Confirmar Consulta" onPress={confirmarConsulta} />
+          </View>
         )}
       </View>
     </View>
@@ -57,5 +59,8 @@ const styles = StyleSheet.create({
     padding: 20,
     borderWidth: 1,
     borderRadius: 8,
+  },
+  btnContainer: {
+    marginTop: 16,
   },
 });
