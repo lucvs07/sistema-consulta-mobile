@@ -47,12 +47,12 @@ export async function confirmarConsulta(consulta: Consulta): Promise<Consulta> {
     medico: { id: consulta.medico.id },
     paciente: { id: consulta.paciente.id },
     dataHora: consulta.dataHora,
-    status: "confirmada" as StatusConsulta,
+    status: StatusConsulta.CONFIRMADA,
     valor: consulta.valor,
     observacoes: consulta.observacoes,
   };
   const response = await api.put<Consulta>(
-    `/consultas/${consulta.id}`,
+    `/consultas/update-by-id/${consulta.id}`,
     payload
   );
   return response.data;
@@ -63,12 +63,12 @@ export async function cancelarConsulta(consulta: Consulta): Promise<Consulta> {
     medico: { id: consulta.medico.id },
     paciente: { id: consulta.paciente.id },
     dataHora: consulta.dataHora,
-    status: "cancelada" as StatusConsulta,
+    status: StatusConsulta.CANCELADA,
     valor: consulta.valor,
     observacoes: consulta.observacoes,
   };
   const response = await api.put<Consulta>(
-    `/consultas/${consulta.id}`,
+    `/consultas/update-by-id/${consulta.id}`,
     payload
   );
   return response.data;

@@ -41,6 +41,7 @@ import {
   cancelarConsulta,
   NovaConsulta,
 } from "./src/services/consultaService";
+import { StatusConsulta } from "./src/types/statusConsultas";
 
 // Cores dos badges de status
 const STATUS_CORES: Record<string, string> = {
@@ -126,7 +127,7 @@ export default function App() {
         medicoId: Number(formMedicoId),
         pacienteId: Number(formPacienteId),
         dataHora: formDataHora,
-        status: "agendada",
+        status: StatusConsulta.AGENDADA,
         valor: Number(formValor),
         observacoes: formObservacoes || undefined,
       };
@@ -308,7 +309,7 @@ export default function App() {
                     )}
 
                     {/* Botões só aparecem quando a consulta está agendada */}
-                    {consulta.status === "agendada" && (
+                    {consulta.status === StatusConsulta.AGENDADA && (
                       <View style={styles.acoesContainer}>
                         <TouchableOpacity
                           style={[styles.botaoAcao, styles.botaoConfirmar]}
