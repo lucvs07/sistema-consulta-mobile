@@ -44,18 +44,18 @@ import {
 import { StatusConsulta } from "./src/types/statusConsultas";
 
 // Cores dos badges de status
-const STATUS_CORES: Record<string, string> = {
-  agendada: "#e3f2fd",
-  confirmada: "#d4edda",
-  realizada: "#e8f5e9",
-  cancelada: "#f8d7da",
+const STATUS_CORES: Record<StatusConsulta, string> = {
+  [StatusConsulta.AGENDADA]: "#e3f2fd",
+  [StatusConsulta.CONFIRMADA]: "#d4edda",
+  [StatusConsulta.REALIZADA]: "#e8f5e9",
+  [StatusConsulta.CANCELADA]: "#f8d7da",
 };
 
-const STATUS_TEXTO_CORES: Record<string, string> = {
-  agendada: "#1565c0",
-  confirmada: "#155724",
-  realizada: "#1b5e20",
-  cancelada: "#721c24",
+const STATUS_TEXTO_CORES: Record<StatusConsulta, string> = {
+  [StatusConsulta.AGENDADA]: "#1565c0",
+  [StatusConsulta.CONFIRMADA]: "#155724",
+  [StatusConsulta.REALIZADA]: "#1b5e20",
+  [StatusConsulta.CANCELADA]: "#721c24",
 };
 
 export default function App() {

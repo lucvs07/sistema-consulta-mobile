@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { Consulta } from "../interfaces/consulta";
+import { StatusConsulta } from "../types/statusConsultas";
 
 type ConsultaCardProps = {
   consulta: Consulta;
@@ -35,8 +36,8 @@ export default function ConsultaCard({
       <View
         style={[
           styles.statusBadge,
-          consulta.status === "confirmada" && styles.statusConfirmada,
-          consulta.status === "cancelada" && styles.statusCancelada,
+          consulta.status === StatusConsulta.AGENDADA && styles.statusConfirmada,
+          consulta.status === StatusConsulta.CANCELADA && styles.statusCancelada,
         ]}
       >
         <Text style={styles.statusTexto}>{consulta.status.toUpperCase()}</Text>
@@ -65,7 +66,7 @@ export default function ConsultaCard({
         )}
       </View>
       <View style={styles.acoes}>
-        {consulta.status === "agendada" && (
+        {consulta.status === StatusConsulta.AGENDADA && (
           <>
             {onConfirmar && (
               <View style={styles.botaoContainer}>
@@ -88,7 +89,7 @@ export default function ConsultaCard({
           </>
         )}
 
-        {consulta.status === "confirmada" && (
+        {consulta.status === StatusConsulta.CONFIRMADA && (
           <View style={styles.mensagem}>
             <Text style={styles.mensagemTexto}>
               ✓ Consulta confirmada com sucesso!
@@ -96,7 +97,7 @@ export default function ConsultaCard({
           </View>
         )}
 
-        {consulta.status === "cancelada" && (
+        {consulta.status === StatusConsulta.CANCELADA && (
           <View style={styles.mensagemCancelada}>
             <Text style={styles.mensagemTexto}>✗ Consulta cancelada</Text>
           </View>
