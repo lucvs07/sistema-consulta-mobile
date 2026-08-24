@@ -28,7 +28,7 @@ export default function EscolhaMedicoScreen({ navigation, route }: Props) {
         // Filtra apenas medicos ativos E com valor de consulta definido
         listarMedicosPorEspecialidade(especialidadeId)
             .then((lista) =>
-                setMedicos(lista.filter((m) => m.ativo && m.valorConsulta != null))
+                setMedicos(lista.filter((m) => m.ativo))
             )
             .finally(() => setCarregando(false));
     }, [especialidadeId]);
