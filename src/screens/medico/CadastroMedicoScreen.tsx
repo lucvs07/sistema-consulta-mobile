@@ -13,8 +13,9 @@ import {
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../navigation/types";
 import { cadastrarMedico } from "../../services/medicoService";
-import { Especialidade } from "../../types/especialidade";
 import { listarEspecialidades } from "../../services/especialiadeService";
+import { Especialidade } from "../../types/especialidade";
+import { mensagemErroApi } from "../../utils/apiErro";
 
 type Props = {
   navigation: NativeStackNavigationProp<RootStackParamList, "CadastroMedico">;
@@ -71,8 +72,8 @@ export default function CadastroMedicoScreen({ navigation }: Props) {
           medicoNome: medico.nome,
         });
       }
-    } catch {
-      setErro("Erro ao cadastrar. CRM ja pode estar em uso.");
+    } catch (e) {
+      setErro(mensagemErroApi(e, "Erro ao cadastrar. CRM ja pode estar em uso."));
     } finally {
       setSalvando(false);
     }
@@ -145,7 +146,7 @@ export default function CadastroMedicoScreen({ navigation }: Props) {
                   style={[
                     styles.itemEspecialidade,
                     especialidadeSelecionada?.id === esp.id &&
-                      styles.itemSelecionado,
+                    styles.itemSelecionado,
                   ]}
                   onPress={() => {
                     setEspecialidadeSelecionada(esp);
@@ -156,7 +157,7 @@ export default function CadastroMedicoScreen({ navigation }: Props) {
                     style={[
                       styles.itemTexto,
                       especialidadeSelecionada?.id === esp.id &&
-                        styles.itemTextoSelecionado,
+                      styles.itemTextoSelecionado,
                     ]}
                   >
                     {esp.nome}
