@@ -29,7 +29,7 @@ export async function atualizarMedico(
     id: number,
     dados: Medico
 ): Promise<Medico> {
-    const response = await api.put<Medico>(`update-by-id/${id}`, dados);
+    const response = await api.put<Medico>(`/medicos/update-by-id/${id}`, dados);
     return response.data;
 }
 
