@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from "react";
-import {
-    View,
-    Text,
-    StyleSheet,
-    FlatList,
-    TouchableOpacity,
-    ActivityIndicator,
-} from "react-native";
+import { View, Text, FlatList, TouchableOpacity, ActivityIndicator } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RouteProp } from "@react-navigation/native";
 import { RootStackParamList } from "../../navigation/types";
 
 import { Especialidade } from "../../types/especialidade";
 import { listarEspecialidades } from "../../services/especialiadeService";
+import { styles } from "../../styles/escolhaEspecialidade.styles";
 
 type Props = {
     navigation: NativeStackNavigationProp<
@@ -79,32 +73,3 @@ export default function EscolhaEspecialidadeScreen({
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: "#79059C" },
-    listContent: { padding: 20, paddingBottom: 40 },
-    titulo: {
-        fontSize: 18,
-        fontWeight: "bold",
-        color: "#fff",
-        marginBottom: 16,
-    },
-    card: {
-        backgroundColor: "#fff",
-        borderRadius: 12,
-        padding: 18,
-        marginBottom: 10,
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-    },
-    cardNome: {
-        fontSize: 16,
-        fontWeight: "600",
-        color: "#333",
-        flex: 1,
-    },
-    cardSeta: { fontSize: 18, color: "#79059C" },
-    vazio: { color: "#fff", textAlign: "center", marginTop: 40, fontSize: 14 },
-});
-
