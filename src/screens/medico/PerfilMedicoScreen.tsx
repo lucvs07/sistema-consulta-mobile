@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  ActivityIndicator,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RouteProp } from "@react-navigation/native";
 import { RootStackParamList } from "../../navigation/types";
@@ -18,6 +8,7 @@ import {
   atualizarMedico,
 } from "../../services/medicoService";
 import { Medico } from "../../interfaces/medico";
+import { styles } from "../../styles/perfilMedico.styles";
 
 type Props = {
   navigation: NativeStackNavigationProp<RootStackParamList, "PerfilMedico">;
@@ -133,77 +124,3 @@ export default function PerfilMedicoScreen({ navigation, route }: Props) {
     </KeyboardAvoidingView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#79059C" },
-  loadingContainer: {
-    flex: 1,
-    backgroundColor: "#79059C",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  content: { flexGrow: 1, padding: 24, paddingTop: 20, paddingBottom: 40 },
-  titulo: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#fff",
-    textAlign: "center",
-    marginBottom: 20,
-  },
-  formulario: { backgroundColor: "#fff", borderRadius: 16, padding: 24 },
-  avisoBox: {
-    backgroundColor: "#fff3cd",
-    borderLeftWidth: 4,
-    borderLeftColor: "#ffc107",
-    borderRadius: 6,
-    padding: 12,
-    marginBottom: 20,
-  },
-  avisoTexto: { fontSize: 13, color: "#856404", lineHeight: 18 },
-  infoMedico: {
-    backgroundColor: "#f0e6f5",
-    borderRadius: 10,
-    padding: 14,
-    marginBottom: 20,
-  },
-  infoLabel: { fontSize: 12, color: "#79059C", fontWeight: "600" },
-  infoNome: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "#4a0070",
-    marginTop: 2,
-  },
-  infoEsp: { fontSize: 13, color: "#666", marginTop: 2 },
-  label: {
-    fontSize: 14,
-    fontWeight: "600",
-    color: "#555",
-    marginBottom: 4,
-    marginTop: 4,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 8,
-    padding: 12,
-    fontSize: 15,
-    marginBottom: 4,
-    color: "#333",
-  },
-  hint: { fontSize: 12, color: "#999", marginBottom: 16 },
-  erroTexto: {
-    color: "#c0392b",
-    fontSize: 13,
-    marginBottom: 12,
-    textAlign: "center",
-  },
-  botao: {
-    backgroundColor: "#79059C",
-    borderRadius: 10,
-    padding: 15,
-    alignItems: "center",
-    marginTop: 4,
-  },
-  botaoDesabilitado: { backgroundColor: "#b57bc0" },
-  botaoTexto: { color: "#fff", fontSize: 16, fontWeight: "bold" },
-});
